@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "shipping_company")
-public class shipping_company {
+public class ShippingCompany {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;

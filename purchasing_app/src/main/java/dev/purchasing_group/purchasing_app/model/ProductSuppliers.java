@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name= "Product_Suppliers")
-public class productSuppliers {
+public class ProductSuppliers {
     //id this annotation is used in java persistence api to denote the primary key of an entity in a database
     // It marks the field id as the primary key of the entity.
     @Id

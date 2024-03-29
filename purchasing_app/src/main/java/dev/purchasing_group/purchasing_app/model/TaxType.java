@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "tax_types")
-public class tax_type {
+public class TaxType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
