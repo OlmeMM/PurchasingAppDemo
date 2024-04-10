@@ -1,14 +1,13 @@
-package dev.purchasing_group.purchasing_app;
+package InternalPurchasingAppAPI;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PurchasingAppApplication {
+public class InternalPurchasingAppApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PurchasingAppApplication.class, args);
+		SpringApplication.run(InternalPurchasingAppApiApplication.class, args);
 	}
 
-	
 }

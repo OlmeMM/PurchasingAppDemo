@@ -1,10 +1,10 @@
-package dev.purchasing_group.purchasing_app;
+package InternalPurchasingAppAPI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PurchasingAppApplicationTests {
+class InternalPurchasingAppApiApplicationTests {
 
 	@Test
 	void contextLoads() {
