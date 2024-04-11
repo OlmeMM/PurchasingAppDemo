@@ -15,7 +15,7 @@ public class OrderController {
 
     @GetMapping("/GetOrders")
     public String getOrders() {
-        return "This is a test ngcghfchg dchfccfcgfcgf";
+        return "Testing the GetOrder route";
     }
 
     @PostMapping("/SendInfo")
