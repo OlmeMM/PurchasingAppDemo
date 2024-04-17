@@ -2,6 +2,7 @@ package InternalPurchasingAppAPI.client.dto;
 import lombok.*;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -9,7 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class OrderDto {
 
-    private String orderId;
+    private UUID orderId;
     private String customerId;
     private Date createdAt;
 }
