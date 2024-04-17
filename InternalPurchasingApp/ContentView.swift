@@ -1,13 +1,30 @@
 //
 //  ContentView.swift
+<<<<<<< HEAD:InternalPurchasingApp/ContentView.swift
+//  InternalPurchasingApp
+//
+//  Created by Jannett Arredondo on 4/5/24.
+=======
 //  test
 //
 //  Created by Olme Matias Molina on 3/25/24.
+>>>>>>> dc77ab7af5297ac8c25ee105014ce973342d01e0:PurchasingApp/ContentView.swift
 //
 
 import SwiftUI
 import Alamofire
 
+<<<<<<< HEAD:InternalPurchasingApp/ContentView.swift
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundStyle(.tint)
+            Text("Hello, world!")
+        }
+        .padding()
+=======
 struct URLImage: View {
     let urlString: String
     
@@ -89,10 +106,14 @@ struct ContentView: View {
                 viewModel.fetch()
             }
         }
+>>>>>>> dc77ab7af5297ac8c25ee105014ce973342d01e0:PurchasingApp/ContentView.swift
     }
 }
 
 #Preview {
     ContentView()
 }
+<<<<<<< HEAD:InternalPurchasingApp/ContentView.swift
+=======
     
+>>>>>>> dc77ab7af5297ac8c25ee105014ce973342d01e0:PurchasingApp/ContentView.swift
