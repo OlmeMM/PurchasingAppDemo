@@ -24,7 +24,8 @@ public class OrderServiceImpl implements OrderService {
     public OrderDto createOrder(OrderDto orderDto) {
         Order order = OrderMapper.mapToOrder(orderDto);
         Order newOrder = orderRepository.save(order);
-        return OrderMapper.mapToOrderDto(newOrder);
+        OrderDto returningDto = OrderMapper.mapToOrderDto(newOrder);
+        return returningDto;
     }
 
     @Override
@@ -39,8 +40,9 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderDto> getAllOrders() {
         List<Order> orders = orderRepository.findAll();
-        return orders.stream().map((order) -> OrderMapper.mapToOrderDto(order))
+         List<OrderDto> orderList = orders.stream().map((order) -> OrderMapper.mapToOrderDto(order))
                 .collect(Collectors.toList());
+        return orderList;
     }
 
     @Override
