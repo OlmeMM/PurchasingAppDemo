@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Alamofire
+import AppAuth
  
 struct LoginView: View {
     @State private var emailOrPhone = ""
@@ -42,6 +43,7 @@ struct LoginView: View {
 
             Button("Log In") {
                 // Handle log in action
+                performOAuthAuthorization()
             }
             .foregroundColor(.white)
             .padding()
@@ -55,6 +57,45 @@ struct LoginView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
+
+    func performOAuthAuthorization() {
+        // Set up OAuth 2.0 configuration
+        guard let issuer = URL(string: "ISSUER_URL"),
+              let redirectURI = URL(string: "msal529f2e3b-ca7b-44e6-85d4-290101cfaf90://auth https://bitbuggy.b2clogin.com/oauth2/nativeclient") else {
+            print("Invalid configuration. Missing required information.")
+            return
+        }
+
+        let configuration = OIDServiceConfiguration(authorizationEndpoint: issuer.appendingPathComponent("oauth/authorize"),
+                                                    tokenEndpoint: issuer.appendingPathComponent("oauth/token"))
+
+        // Create authorization request
+        let request = OIDAuthorizationRequest(configuration: configuration,
+                                               clientId: "529f2e3b-ca7b-44e6-85d4-290101cfaf90",
+                                               clientSecret: nil,
+                                               scopes: ["YOUR_SCOPE"],
+                                               redirectURL: redirectURI,
+                                               responseType: OIDResponseTypeCode,
+                                               additionalParameters: nil)
+
+        // Perform authorization request
+        guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
+            print("Unable to find root view controller.")
+            return
+        }
+
+        OIDAuthState.authState(byPresenting: request, presenting: rootViewController) { authState, error in
+            if authState != nil {
+                // Authorization successful
+                // Save authState for later use
+                var token = ""
+            } else {
+                // Authorization failed
+                print("Authorization error: \(error?.localizedDescription ?? "Unknown error")")
+            }
+        }
+    }
+
 }
 
 struct LoginView_Previews: PreviewProvider {

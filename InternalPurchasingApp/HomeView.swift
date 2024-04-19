@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     // Definitions for dashboard shortcut icons
     let dashboardIcons = [
-        ("Analytics", "waveform.path.ecg"),
         ("Customers", "person.2.fill"),
         ("Orders", "cart.fill"),
-        ("Sales", "tag.fill"),
         ("Products", "bag.fill")
     ]
     
@@ -30,25 +29,35 @@ struct HomeView: View {
         ("Woodland Shoes", "Beverly Alen - Paypal", "#51202563", "$94.54", "Aug 10")
     ]
     
+    @State private var selectedFilter = "All" // Initial filter selection
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
+                
                 // Home Title
                 Text("Home")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding([.top, .leading, .trailing])
-
+            }
+            .frame(maxWidth: .infinity)
+            .foregroundColor(.white)
+            .background(Color (hex: "38785e"))
+            
+            VStack(alignment: .leading) {
+                
+                
                 // Dashboard shortcut icons
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
+                    HStack(spacing: 60) {
                         ForEach(dashboardIcons, id: \.0) { icon in
                             VStack {
                                 Image(systemName: icon.1)
                                     .font(.title)
                                     .foregroundColor(.blue)
                                     .padding()
-                                    .background(Color(UIColor.systemGray6))
+                                    .background(Color(hex: "#c2a25d"))
                                     .clipShape(Circle())
                                 Text(icon.0)
                                     .font(.caption)
@@ -58,7 +67,7 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                 }
-
+                
                 // Live Feed (Overview) with a red icon to show it's live
                 HStack {
                     Image(systemName: "waveform.path.ecg") // Placeholder for live icon
@@ -91,12 +100,28 @@ struct HomeView: View {
                     }
                 }
                 .padding()
-                
-                // Recent Orders Section
-                Text("Recent Orders")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .padding(.horizontal)
+            }
+            
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Recent Orders")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding(.horizontal)
+                    Spacer()
+                    
+                    // Filter Picker
+                    Picker(selection: $selectedFilter, label: Text("Filter")) {
+                            Text("All").tag("All")
+                            Text("Today").tag("Today")
+                            Text("Yesterday").tag("Yesterday")
+                            Text("This Week").tag("This Week")
+                            Text("This Month").tag("This Month")
+                                            
+                    }
+                    .pickerStyle(.menu)
+                }
                 
                 ForEach(recentOrders, id: \.1) { order in
                     HStack {
@@ -122,6 +147,9 @@ struct HomeView: View {
                 
                 Spacer()
             }
+            
+            .background(Color(hex: "053426"))
+            .foregroundColor(.white)
         }
     }
 }

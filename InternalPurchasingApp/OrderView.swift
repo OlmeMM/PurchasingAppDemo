@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OrderView: View {
     @Environment(\.presentationMode) var presentationMode
-
+    
     // Dummy data for orders
     let orders = [
         Order(productName: "Daniel Wellington Classic", buyerInfo: "John Doe · Stripe · #51202325 · Aug 11", price: "$149.21", imageName: "watch"),

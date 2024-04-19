@@ -51,7 +51,7 @@ struct SideMenuView: View {
                     Spacer()
                 }
                 .frame(width: 250)
-                .background(Color.white)
+                .background(Color (hex: "#ad8d49"))
                 .offset(x: isShowingSideMenu ? 0 : -250)
                 .transition(.move(edge: .leading))
                 .animation(.easeInOut(duration: 0.5), value: isShowingSideMenu)
