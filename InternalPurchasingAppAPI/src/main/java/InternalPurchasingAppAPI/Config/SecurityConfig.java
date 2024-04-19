@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer.*;
+
 @Configuration //to defines beans
 @EnableWebSecurity
 
@@ -29,10 +31,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                //.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
-                .csrf(csrf-> csrf.disable()) //disbles protection
+                .oauth2ResourceServer((oauth2) -> oauth2
+                        .jwt(Customizer.withDefaults())) //jwt configuration.
+
+                .csrf(csrf-> csrf.disable()) //
+
                 .authorizeHttpRequests(auth->auth
                         .anyRequest().authenticated())
+
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
                 .httpBasic(Customizer.withDefaults())
