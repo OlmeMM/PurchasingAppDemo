@@ -1,55 +1,43 @@
 package InternalPurchasingAppAPI.Config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.oauth2.jwt.*;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
 
-import static org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer.*;
+
 
 @Configuration //to defines beans
 @EnableWebSecurity
 
 public class SecurityConfig {
-    @Bean      //to create profiles
-    public InMemoryUserDetailsManager user() {
-        return new InMemoryUserDetailsManager(
-            User.withUsername("Euris")
-                    .password("{noop}password")
-                    .authorities("read")
-                    .build()
-        );
-    }
+
+//    private final JwtDecoder jwtDecoder;
+//
+//    public SecurityConfig(JwtDecoder jwtDecoder) {
+//        this.jwtDecoder = jwtDecoder;
+//    }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
-
-
-                .csrf(csrf-> csrf.disable()) //
-
-                .authorizeHttpRequests(auth->auth
-                        .anyRequest().authenticated())
-
-                .oauth2ResourceServer((oauth2) -> oauth2
-                        .jwt(Customizer.withDefaults())) //jwt configuration.
-
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-
-                .httpBasic(Customizer.withDefaults())
-
-
-
-                .build();
-
-
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(authorize -> authorize
+//                        .anyRequest().authenticated()
+                        .requestMatchers("/orders/**").authenticated()
+                                .anyRequest().authenticated()//any request to the API needs to be authenticated
+                )
+                .oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()));
+        return http.build();
     }
+
+  //jwt decoder who will decipher the jwt.
+//    @Bean
+//    public JwtDecoder jwtDecoder() {
+//        return JwtDecoders.fromIssuerLocation("https://bitbuggy.b2clogin.com/533398db-accf-4cf9-bee1-6b65ce5aa8b9/v2.0/");
+//   }
 
 }
