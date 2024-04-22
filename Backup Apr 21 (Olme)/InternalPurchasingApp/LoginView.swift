@@ -60,7 +60,7 @@ struct LoginView: View {
 
     func performOAuthAuthorization() {
         // Set up OAuth 2.0 configuration
-        guard let issuer = URL(string: ""),
+        guard let issuer = URL(string: "ISSUER_URL"),
               let redirectURI = URL(string: "msal529f2e3b-ca7b-44e6-85d4-290101cfaf90://auth https://bitbuggy.b2clogin.com/oauth2/nativeclient") else {
             print("Invalid configuration. Missing required information.")
             return
