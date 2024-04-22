@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
-import Alamofire
+
 
 @main
-struct InternalPurchasingAppApp: App {
+struct MyApp: App {
+    @StateObject private var navigationViewModel = NavigationViewModel()
+
     var body: some Scene {
         WindowGroup {
             LaunchScreenView()
+                .environmentObject(navigationViewModel)
         }
     }
 }
