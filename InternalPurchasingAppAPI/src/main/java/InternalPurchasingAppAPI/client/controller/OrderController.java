@@ -1,12 +1,12 @@
 package InternalPurchasingAppAPI.client.controller;
 import InternalPurchasingAppAPI.client.dto.OrderDto;
-
 import InternalPurchasingAppAPI.service.OrderService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
 
 
 @RestController
@@ -23,20 +23,32 @@ public class OrderController {
     @PostMapping("/create")
     public ResponseEntity<OrderDto> createOrder(@RequestBody OrderDto orderDto){
         OrderDto newOrder = orderService.createOrder(orderDto);
-        return new ResponseEntity<>(newOrder, HttpStatus.OK);
-    }
-
-    @PostMapping("/update")
-    public ResponseEntity<OrderDto> updateOrder(@RequestBody OrderDto orderDto){
-        OrderDto updateOrder = orderService.updateOrder(orderDto);
-        return new ResponseEntity<>(updateOrder, HttpStatus.OK);
+        ResponseEntity<OrderDto> checkingDto = ResponseEntity.ok(newOrder);
+        return checkingDto;
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<OrderDto> getOrderById(@PathVariable("id") String orderById){
-        OrderDto orderDto = orderService.getOrderById(orderById);
+    public ResponseEntity<OrderDto> getOrderById(@PathVariable("id") UUID orderId){
+        OrderDto orderDto = orderService.getOrderById(orderId);
         return ResponseEntity.ok(orderDto);
     }
 
+    @GetMapping("/getAll")
+    public ResponseEntity<List<OrderDto>> getAllOrders(){
+        List<OrderDto> orders = orderService.getAllOrders();
+        ResponseEntity<List<OrderDto>> checkingDto = ResponseEntity.ok(orders);
+        return checkingDto;
+    }
 
+    @PostMapping("/update/{id}")
+    public ResponseEntity<OrderDto> updateOrder(@PathVariable("id") UUID orderId, @RequestBody OrderDto updatedOrder){
+        OrderDto orderDto = orderService.updateOrder(orderId, updatedOrder);
+        return ResponseEntity.ok(orderDto);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<String> deleteOrder(UUID orderId){
+        orderService.deleteOrder(orderId);
+        return ResponseEntity.ok("Order deleted successfully!");
+    }
 }

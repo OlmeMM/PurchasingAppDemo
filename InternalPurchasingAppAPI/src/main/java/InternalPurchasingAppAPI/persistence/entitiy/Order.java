@@ -2,22 +2,30 @@ package InternalPurchasingAppAPI.persistence.entitiy;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.type.SqlTypes;
 
 import java.util.Date;
-@Getter
+import java.util.UUID;
+
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "order_id")
-    private String orderId;
+    private UUID orderId;
+
+    @UuidGenerator
     @Column(name = "customer_id")
-    private String customerId;
+    private UUID customerId;
+
     @Column(name = "created_at")
     private Date createdAt;
-
 }
