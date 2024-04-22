@@ -11,10 +11,13 @@
 		5BB467F92BCE325100E29958 /* AppAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5BB467F82BCE325100E29958 /* AppAuthCore */; };
 		5BB467FB2BCE325100E29958 /* AppAuthTV in Frameworks */ = {isa = PBXBuildFile; productRef = 5BB467FA2BCE325100E29958 /* AppAuthTV */; };
 		5BB467FD2BD1F2A800E29958 /* DataBaseStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB467FC2BD1F2A800E29958 /* DataBaseStructs.swift */; };
+		5BF5421F2BD60B5700E272C5 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF5421E2BD60B5700E272C5 /* Test.swift */; };
 		F13BE0C92BC09A510035DE4B /* InternalPurchasingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13BE0C82BC09A510035DE4B /* InternalPurchasingAppApp.swift */; };
 		F13BE0CB2BC09A510035DE4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13BE0CA2BC09A510035DE4B /* ContentView.swift */; };
 		F13BE0CD2BC09A540035DE4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13BE0CC2BC09A540035DE4B /* Assets.xcassets */; };
 		F13BE0D02BC09A540035DE4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13BE0CF2BC09A540035DE4B /* Preview Assets.xcassets */; };
+		F16DB32E2BD5FCEA00071D8C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DB32D2BD5FCEA00071D8C /* Extension.swift */; };
+		F16DB3302BD5FD2B00071D8C /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DB32F2BD5FD2B00071D8C /* NavigationViewModel.swift */; };
 		F1726FBA2BCC5EAF00690832 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1726FB92BCC5EAF00690832 /* SideMenuView.swift */; };
 		F1726FBC2BCC61B300690832 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1726FBB2BCC61B300690832 /* HomeView.swift */; };
 		F1726FBE2BCC67A000690832 /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1726FBD2BCC67A000690832 /* CustomerView.swift */; };
@@ -33,11 +36,14 @@
 
 /* Begin PBXFileReference section */
 		5BB467FC2BD1F2A800E29958 /* DataBaseStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseStructs.swift; sourceTree = "<group>"; };
+		5BF5421E2BD60B5700E272C5 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		F13BE0C52BC09A510035DE4B /* InternalPurchasingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternalPurchasingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13BE0C82BC09A510035DE4B /* InternalPurchasingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalPurchasingAppApp.swift; sourceTree = "<group>"; };
 		F13BE0CA2BC09A510035DE4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F13BE0CC2BC09A540035DE4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F13BE0CF2BC09A540035DE4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F16DB32D2BD5FCEA00071D8C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		F16DB32F2BD5FD2B00071D8C /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		F1726FB92BCC5EAF00690832 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		F1726FBB2BCC61B300690832 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F1726FBD2BCC67A000690832 /* CustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerView.swift; sourceTree = "<group>"; };
@@ -89,6 +95,8 @@
 			children = (
 				F13BE0C82BC09A510035DE4B /* InternalPurchasingAppApp.swift */,
 				F1E2EB042BC0B8E1005E1847 /* DashboardView.swift */,
+				F16DB32D2BD5FCEA00071D8C /* Extension.swift */,
+				F16DB32F2BD5FD2B00071D8C /* NavigationViewModel.swift */,
 				F1726FB92BCC5EAF00690832 /* SideMenuView.swift */,
 				F1726FBB2BCC61B300690832 /* HomeView.swift */,
 				F1726FC12BCC77C900690832 /* ProductsView.swift */,
@@ -97,6 +105,7 @@
 				F1726FBD2BCC67A000690832 /* CustomerView.swift */,
 				F1726FBF2BCC6EE800690832 /* OrderView.swift */,
 				F1E2EB022BC0B86D005E1847 /* LoginView.swift */,
+				5BF5421E2BD60B5700E272C5 /* Test.swift */,
 				F1E2EB082BCC4294005E1847 /* LaunchScreenView.swift */,
 				F1E2EB0A2BCC4685005E1847 /* SignupView.swift */,
 				F1E2EAFA2BC0B2BC005E1847 /* API'S.swift */,
@@ -200,6 +209,7 @@
 				F1726FBE2BCC67A000690832 /* CustomerView.swift in Sources */,
 				F1726FBC2BCC61B300690832 /* HomeView.swift in Sources */,
 				F1E2EB0B2BCC4685005E1847 /* SignupView.swift in Sources */,
+				F16DB3302BD5FD2B00071D8C /* NavigationViewModel.swift in Sources */,
 				F1E2EAFB2BC0B2BC005E1847 /* API'S.swift in Sources */,
 				5BB467FD2BD1F2A800E29958 /* DataBaseStructs.swift in Sources */,
 				F1726FBA2BCC5EAF00690832 /* SideMenuView.swift in Sources */,
@@ -207,8 +217,10 @@
 				F1E2EB052BC0B8E1005E1847 /* DashboardView.swift in Sources */,
 				F1726FC62BCC79DF00690832 /* ActivityFeedView.swift in Sources */,
 				F1E2EB032BC0B86D005E1847 /* LoginView.swift in Sources */,
+				5BF5421F2BD60B5700E272C5 /* Test.swift in Sources */,
 				F1726FC22BCC77C900690832 /* ProductsView.swift in Sources */,
 				F1726FC02BCC6EE800690832 /* OrderView.swift in Sources */,
+				F16DB32E2BD5FCEA00071D8C /* Extension.swift in Sources */,
 				F1726FC42BCC78E800690832 /* NotificationsView.swift in Sources */,
 				F13BE0C92BC09A510035DE4B /* InternalPurchasingAppApp.swift in Sources */,
 				F1E2EB092BCC4294005E1847 /* LaunchScreenView.swift in Sources */,
