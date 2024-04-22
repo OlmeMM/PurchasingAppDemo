@@ -23,7 +23,8 @@ public class OrderController {
     @PostMapping("/create")
     public ResponseEntity<OrderDto> createOrder(@RequestBody OrderDto orderDto){
         OrderDto newOrder = orderService.createOrder(orderDto);
-        return new ResponseEntity<>(newOrder, HttpStatus.OK);
+        ResponseEntity<OrderDto> checkingDto = ResponseEntity.ok(newOrder);
+        return checkingDto;
     }
 
     @GetMapping("/find/{id}")
@@ -35,7 +36,8 @@ public class OrderController {
     @GetMapping("/getAll")
     public ResponseEntity<List<OrderDto>> getAllOrders(){
         List<OrderDto> orders = orderService.getAllOrders();
-        return ResponseEntity.ok(orders);
+        ResponseEntity<List<OrderDto>> checkingDto = ResponseEntity.ok(orders);
+        return checkingDto;
     }
 
     @PostMapping("/update/{id}")

@@ -11,6 +11,6 @@ import java.util.UUID;
 public class OrderDto {
 
     private UUID orderId;
-    private String customerId;
+    private UUID customerId;
     private Date createdAt;
 }
