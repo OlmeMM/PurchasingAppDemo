@@ -1,9 +1,10 @@
 //
-//  NavigationViewModel.swift
+//  NavigationViewModel2.swift
 //  InternalPurchasingApp
 //
-//  Created by Jannett Arredondo on 4/19/24.
+//  Created by Jannett Arredondo on 4/21/24.
 //
+
 import SwiftUI
 
 class NavigationViewModel: ObservableObject {
