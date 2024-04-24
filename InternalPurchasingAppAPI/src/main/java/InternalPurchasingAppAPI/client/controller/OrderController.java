@@ -23,8 +23,7 @@ public class OrderController {
     @PostMapping("/create")
     public ResponseEntity<OrderDto> createOrder(@RequestBody OrderDto orderDto){
         OrderDto newOrder = orderService.createOrder(orderDto);
-        ResponseEntity<OrderDto> checkingDto = ResponseEntity.ok(newOrder);
-        return checkingDto;
+        return ResponseEntity.ok(newOrder);
     }
 
     @GetMapping("/find/{id}")
