@@ -1,0 +1,7 @@
+spring:
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: https://bitbuggy.b2clogin.com/533398db-accf-4cf9-bee1-6b65ce5aa8b9/v2.0/
+          audiences: 0f852de5-b6f5-4a89-b149-eb52e3d54d7a

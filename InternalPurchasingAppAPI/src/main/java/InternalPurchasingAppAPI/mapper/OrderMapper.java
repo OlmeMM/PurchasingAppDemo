@@ -1,11 +1,9 @@
 package InternalPurchasingAppAPI.mapper;
 
-
 import InternalPurchasingAppAPI.client.dto.OrderDto;
 import InternalPurchasingAppAPI.persistence.entitiy.Order;
 
 public class OrderMapper {
-
     public static OrderDto mapToOrderDto(Order order){
         return new OrderDto(
                 order.getOrderId(),

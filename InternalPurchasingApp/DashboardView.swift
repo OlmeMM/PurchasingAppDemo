@@ -6,71 +6,125 @@
 //
 
 import SwiftUI
-import Alamofire
-
 
 struct DashboardView: View {
-    @State private var isShowingSideMenu = false
-
-    // Define an array for the menu items
+    @State private var isShowingSideMenu = false // State to control the side menu visibility
+    @EnvironmentObject var navigationViewModel: NavigationViewModel
+    
+    // Define your color palette here
+    let backgroundColor = Color(hex: "053426") // Deep green background
+    let secondaryBackgroundColor = Color(hex: "38785e") // Lighter green for items background
+    let foregroundColor = Color(hex: "c2a25d") // Gold color for the item icons and text
+    let headerColor = Color(hex: "c2a25d") // Gold color for the header text
+    
     let menuItems = [
-        ("Analytics", "waveform.path.ecg"),
         ("Customers", "person.fill"),
         ("Orders", "app.fill"),
-        ("Tasks", "text.badge.checkmark"),
-        ("Sales", "banknote.fill"),
-        ("Products", "cart.fill")
+        ("Products", "cart.fill"),
+        ("Activity", "person.3"),
     ]
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                // Your DashboardView content here...
-                ScrollView {
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-                        ForEach(menuItems, id: \.0) { item in
-                            NavigationLink(destination: Text("\(item.0) Details")) {
-                                MenuItemView(name: item.0, imageName: item.1)
-                            }
+            NavigationView {
+                ZStack {
+                    mainContent
+                        .blur(radius: isShowingSideMenu ? 20 : 0)
+                        .animation(.easeInOut, value: isShowingSideMenu)
+                        .disabled(isShowingSideMenu)
+                    
+                    if isShowingSideMenu {
+                        sideMenu
+                            .transition(.move(edge: .leading))
+                    }
+                }
+                .navigationBarItems(leading: menuButton)
+                .navigationBarTitleDisplayMode(.inline)
+                .background(backgroundColor.edgesIgnoringSafeArea(.all))
+            }
+        }
+
+    private var mainContent: some View {
+        VStack(spacing: 0) {
+            Text("Dashboard")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(headerColor)
+                .padding(.top, 20)
+                .padding(.bottom, 20)
+                .frame(maxWidth: .infinity)
+                .background(secondaryBackgroundColor)
+            
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
+                    ForEach(menuItems, id: \.0) { item in
+                        NavigationLink(destination: Text("\(item.0) Details")) {
+                            MenuItemView(name: item.0, imageName: item.1,
+                                         backgroundColor: secondaryBackgroundColor,
+                                         foregroundColor: foregroundColor)
                         }
                     }
-                    .padding()
                 }
-                .navigationTitle("Dashboard")
-                .navigationBarItems(leading: Button(action: {
-                    withAnimation {
-                        isShowingSideMenu = true
-                    }
-                }) {
-                    Image(systemName: "line.horizontal.3")
-                        .foregroundColor(.blue)
-                })
-
-                // Overlay for SideMenuView
-                if isShowingSideMenu {
-                    SideMenuView(isShowingSideMenu: $isShowingSideMenu)
-                }
+                .padding()
             }
+            .background(backgroundColor)
+        }
+        .navigationBarHidden(true)
+    }
+    
+    private var sideMenu: some View {
+        GeometryReader { _ in
+            HStack {
+                SideMenuView(isShowingSideMenu: $isShowingSideMenu)
+                    .frame(width: 250)
+                    .offset(x: isShowingSideMenu ? 0 : -250)
+                    .animation(.easeInOut, value: isShowingSideMenu)
+                    .environmentObject(navigationViewModel)
+                    .zIndex(2) // Ensure the menu is above the main content
+                Spacer()
+            }
+        }
+        .background(Color.black.opacity(isShowingSideMenu ? 0.5 : 0).ignoresSafeArea().onTapGesture {
+            withAnimation {
+                isShowingSideMenu = false
+            }
+        })
+    }
+    
+    private var menuButton: some View {
+        Button(action: {
+            withAnimation {
+                isShowingSideMenu.toggle()
+            }
+        }) {
+            Image(systemName: "line.horizontal.3")
+                .foregroundColor(foregroundColor)
+                .imageScale(.large)
         }
     }
 }
-
-// Define MenuItemView for reuse
 struct MenuItemView: View {
     let name: String
     let imageName: String
+    let backgroundColor: Color
+    let foregroundColor: Color
 
     var body: some View {
         VStack {
             Image(systemName: imageName)
                 .font(.largeTitle)
-                .foregroundColor(.blue)
-                .padding()
-                .background(Color(UIColor.systemGray6))
-                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .foregroundColor(foregroundColor)
+                .padding(30)
+                .background(backgroundColor)
+                .clipShape(Circle())
+                .frame(width: 88, height: 88)
             Text(name)
+                .foregroundColor(foregroundColor)
+                .frame(width: 120)
         }
-        .frame(height: 120)
+        .frame(width: 120, height: 160)
+        .padding(.vertical, 8)
+        .background(backgroundColor.opacity(0.3))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 
