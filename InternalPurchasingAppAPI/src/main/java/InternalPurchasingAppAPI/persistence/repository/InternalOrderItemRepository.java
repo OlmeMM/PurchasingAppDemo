@@ -1,10 +1,9 @@
 package InternalPurchasingAppAPI.persistence.repository;
-import InternalPurchasingAppAPI.persistence.entitiy.Order;
+import InternalPurchasingAppAPI.persistence.entitiy.InternalOrderItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.UUID;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Order, UUID> {
+public interface InternalOrderItemRepository extends JpaRepository<InternalOrderItem, Integer> {
 }
