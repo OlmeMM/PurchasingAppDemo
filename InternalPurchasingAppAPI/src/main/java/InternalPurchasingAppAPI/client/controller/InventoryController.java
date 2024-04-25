@@ -9,7 +9,7 @@ import java.util.*;
 
 
 @RestController
-@RequestMapping("/warehouse")
+@RequestMapping("/inventory")
 public class InventoryController {
 
     private final InventoryService InventoryService;
