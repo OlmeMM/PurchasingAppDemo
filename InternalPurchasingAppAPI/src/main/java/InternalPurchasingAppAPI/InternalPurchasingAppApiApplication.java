@@ -9,5 +9,4 @@ public class InternalPurchasingAppApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(InternalPurchasingAppApiApplication.class, args);
 	}
-
 }

@@ -1,6 +1,7 @@
 package InternalPurchasingAppAPI.service;
 
 import InternalPurchasingAppAPI.client.dto.InternalOrderDto;
+import InternalPurchasingAppAPI.client.dto.PlacedInternalOrderDto;
 
 import java.util.*;
 
@@ -15,4 +16,5 @@ public interface InternalOrderService {
 
     void deleteInternalOrder(Integer id);
 
+    InternalOrderDto placeAnInternalOrder(PlacedInternalOrderDto placedInternalOrderAttempt);
 }

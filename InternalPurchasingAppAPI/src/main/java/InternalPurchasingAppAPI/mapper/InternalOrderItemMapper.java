@@ -3,7 +3,7 @@ package InternalPurchasingAppAPI.mapper;
 import InternalPurchasingAppAPI.client.dto.InternalOrderItemDto;
 import InternalPurchasingAppAPI.persistence.entitiy.InternalOrderItem;
 
-public class InternalOrderItemItemMapper {
+public class InternalOrderItemMapper {
 
     public static InternalOrderItemDto mapToInternalOrderItemItemDto(InternalOrderItem internalOrderItem){
         return new InternalOrderItemDto(

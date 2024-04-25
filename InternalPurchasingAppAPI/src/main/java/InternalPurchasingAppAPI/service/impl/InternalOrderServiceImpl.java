@@ -1,12 +1,18 @@
 package InternalPurchasingAppAPI.service.impl;
 
 import InternalPurchasingAppAPI.client.dto.InternalOrderDto;
+import InternalPurchasingAppAPI.client.dto.InternalOrderItemDto;
+import InternalPurchasingAppAPI.client.dto.PlacedInternalOrderDto;
 import InternalPurchasingAppAPI.exception.ResourceNotFoundException;
+import InternalPurchasingAppAPI.mapper.InternalOrderItemMapper;
 import InternalPurchasingAppAPI.mapper.InternalOrderMapper;
 import InternalPurchasingAppAPI.persistence.entitiy.InternalOrder;
+import InternalPurchasingAppAPI.persistence.entitiy.InternalOrderItem;
+import InternalPurchasingAppAPI.persistence.repository.InternalOrderItemRepository;
 import InternalPurchasingAppAPI.persistence.repository.InternalOrderRepository;
 import InternalPurchasingAppAPI.service.InternalOrderService;
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +24,7 @@ import java.util.stream.Collectors;
 public class InternalOrderServiceImpl implements InternalOrderService {
 
     private InternalOrderRepository internalOrderRepository;
+    private InternalOrderItemRepository internalOrderItemRepository;
 
     @Override
     public InternalOrderDto createInternalOrder(InternalOrderDto internalOrderDto) {
@@ -66,5 +73,27 @@ public class InternalOrderServiceImpl implements InternalOrderService {
                 () -> new ResourceNotFoundException("No employee with corresponding id found, id: " + internalOrderId)
         );
         internalOrderRepository.deleteById(internalOrderId);
+    }
+
+    @Async
+    public void processOrderItems(List<InternalOrderItemDto> internalOrderItemDtoList, Integer internalOrderId) {
+        internalOrderItemDtoList.forEach(orderItem -> {
+            InternalOrderItem orderItemEntity = InternalOrderItemMapper.mapToInternalOrderItem(orderItem);
+            orderItemEntity.setInternalOrderId(internalOrderId);
+            internalOrderItemRepository.save(orderItemEntity);
+        });
+    }
+
+    @Override
+    public InternalOrderDto placeAnInternalOrder(PlacedInternalOrderDto placedInternalOrderAttempt) {
+        InternalOrderDto internalOrderDto = placedInternalOrderAttempt.getPlacedOrder();
+        InternalOrderDto internalOrderDtoResponse = createInternalOrder(internalOrderDto);
+
+        Integer internalOrderId = internalOrderDtoResponse.getId();
+
+        List<InternalOrderItemDto> internalOrderItemDtoList = placedInternalOrderAttempt.getPlacedOrderItems();
+        processOrderItems(internalOrderItemDtoList, internalOrderId);
+
+        return internalOrderDtoResponse;
     }
 }

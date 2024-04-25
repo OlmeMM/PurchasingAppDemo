@@ -1,6 +1,10 @@
 package InternalPurchasingAppAPI.client.controller;
 import InternalPurchasingAppAPI.client.dto.InternalOrderDto;
+import InternalPurchasingAppAPI.client.dto.PlacedInternalOrderDto;
+import InternalPurchasingAppAPI.persistence.entitiy.InternalOrder;
+import InternalPurchasingAppAPI.persistence.entitiy.InternalOrderItem;
 import InternalPurchasingAppAPI.service.InternalOrderService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -42,6 +46,15 @@ public class InternalOrderController {
         InternalOrderDto internalInternalOrderDto = orderService.updateInternalOrder(internalOrderId, updatedInternalOrder);
         return ResponseEntity.ok(internalInternalOrderDto);
     }
+
+    @PostMapping("/place-order")
+    public ResponseEntity<InternalOrderDto> placeAnInternalOrder(@RequestBody PlacedInternalOrderDto placedInternalOrderAttempt){
+        InternalOrderDto placedOrderAttemptResponse = orderService.placeAnInternalOrder(placedInternalOrderAttempt);
+        return ResponseEntity.ok(placedOrderAttemptResponse);
+    }
+
+    //@PostMapping("/deactivate/{id}")
+
 
     @DeleteMapping
     public ResponseEntity<String> deleteInternalOrder(Integer internalOrderId){
