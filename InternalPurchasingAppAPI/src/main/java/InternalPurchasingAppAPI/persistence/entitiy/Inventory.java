@@ -14,14 +14,16 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "warehouseItems")
-public class WarehouseItem {
+public class Inventory {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "warehouse")
+    private Integer id;
+
     private UUID warehouseId;
 
     @Column(name = "upc")
-    private Integer UPC;
+    private Integer productId;
 
     @Column(name = "stock")
     private Integer stock;

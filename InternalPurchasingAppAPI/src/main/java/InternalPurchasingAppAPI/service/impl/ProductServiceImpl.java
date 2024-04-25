@@ -48,10 +48,8 @@ public class ProductServiceImpl implements ProductService {
         );
 
         product.setCategoryId(updatedProduct.getCategoryId());
-        product.setProductName(updatedProduct.getProductName());
-        product.setProductDate(updatedProduct.getProductDate());
-        product.setProductQuantity(updatedProduct.getProductQuantity());
-        product.setWarehouseId(updatedProduct.getWarehouseId());
+        product.setName(updatedProduct.getName());
+        product.setPrice(updatedProduct.getPrice());
         // product.setUpdatedAt(updatedOrder.getUpdatedAt());
 
         Product updatedProductObj = productRepository.save(product);

@@ -11,8 +11,9 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class WarehouseItemDto {
+public class InventoryDto {
+    private int id;
     private UUID warehouseId;
-    private Integer UPC;
+    private Integer productId;
     private Integer stock;
 }
