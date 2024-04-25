@@ -10,7 +10,7 @@ import java.util.*;
 
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("/order")
 public class OrderController {
 
     private final OrderService orderService;
@@ -23,8 +23,7 @@ public class OrderController {
     @PostMapping("/create")
     public ResponseEntity<OrderDto> createOrder(@RequestBody OrderDto orderDto){
         OrderDto newOrder = orderService.createOrder(orderDto);
-        ResponseEntity<OrderDto> checkingDto = ResponseEntity.ok(newOrder);
-        return checkingDto;
+        return ResponseEntity.ok(newOrder);
     }
 
     @GetMapping("/find/{id}")
@@ -36,8 +35,7 @@ public class OrderController {
     @GetMapping("/getAll")
     public ResponseEntity<List<OrderDto>> getAllOrders(){
         List<OrderDto> orders = orderService.getAllOrders();
-        ResponseEntity<List<OrderDto>> checkingDto = ResponseEntity.ok(orders);
-        return checkingDto;
+        return ResponseEntity.ok(orders);
     }
 
     @PostMapping("/update/{id}")
