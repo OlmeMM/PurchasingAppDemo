@@ -7,23 +7,19 @@ public class ProductMapper {
 
     public static ProductDto mapToProductDto(Product product){
         return new ProductDto(
-                product.getProductId(),
+                product.getId(),
                 product.getCategoryId(),
-                product.getProductName(),
-                product.getProductDate(),
-                product.getProductQuantity(),
-                product.getWarehouseId()
+                product.getName(),
+                product.getPrice()
         );
     }
 
     public static Product mapToProduct(ProductDto productDto){
         return new Product(
-                productDto.getProductId(),
+                productDto.getId(),
                 productDto.getCategoryId(),
-                productDto.getProductName(),
-                productDto.getProductDate(),
-                productDto.getProductQuantity(),
-                productDto.getWarehouseId()
+                productDto.getName(),
+                productDto.getPrice()
         );
     }
 }

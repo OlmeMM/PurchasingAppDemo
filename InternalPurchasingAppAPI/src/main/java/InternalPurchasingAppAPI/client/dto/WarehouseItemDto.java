@@ -5,13 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDto {
-    private int id;
-    private int categoryId;
-    private String name;
-    private float price;
+public class WarehouseItemDto {
+    private UUID warehouseId;
+    private Integer UPC;
+    private Integer stock;
 }

@@ -1,8 +1,11 @@
 package InternalPurchasingAppAPI.persistence.entitiy;
-import jakarta.persistence.*;
-import lombok.*;
 
-import java.util.Date;
+import jakarta.annotation.Nullable;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -12,22 +15,18 @@ import java.util.Date;
 @Table(name = "products")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "product_id")
-    private Integer productId;
+    @GeneratedValue
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "category_id")
+    @Nullable
     private Integer categoryId;
 
-    @Column(name = "product_name")
-    private String productName;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "product_date")
-    private Date productDate;
+    @Column(name = "price")
+    private float price;
 
-    @Column(name = "product_quantity")
-    private Integer productQuantity;
-
-    @Column(name = "warehouse_id")
-    private String warehouseId;
 }
