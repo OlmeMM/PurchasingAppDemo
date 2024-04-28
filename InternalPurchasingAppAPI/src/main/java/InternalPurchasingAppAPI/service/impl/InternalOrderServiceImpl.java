@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -89,11 +90,25 @@ public class InternalOrderServiceImpl implements InternalOrderService {
         InternalOrderDto internalOrderDto = placedInternalOrderAttempt.getPlacedOrder();
         InternalOrderDto internalOrderDtoResponse = createInternalOrder(internalOrderDto);
 
+        // get internalOrderId to assign to each internal order item internalOrderId property
         Integer internalOrderId = internalOrderDtoResponse.getId();
 
+        //get the list of internal orders
         List<InternalOrderItemDto> internalOrderItemDtoList = placedInternalOrderAttempt.getPlacedOrderItems();
+        // insert each internal order item into the internal order items table
         processOrderItems(internalOrderItemDtoList, internalOrderId);
 
         return internalOrderDtoResponse;
     }
+
+//    @Override
+//    public InternalOrderDto deactivateInternalOrder(Integer internalOrderId) {
+//        // get internal order
+//        InternalOrderDto orderToDeactivate = getInternalOrderById(internalOrderId);
+//        // Set the deactivatedAt property to the current date and time
+//        orderToDeactivate.setDeactivatedAt(LocalDateTime.now());
+//
+//        // Save the updated order
+//        return internalOrderRepository.save(orderToDeactivate);
+//    }
 }
