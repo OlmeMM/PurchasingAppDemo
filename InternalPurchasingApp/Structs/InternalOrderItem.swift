@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct InternalOrderItem: Decodable{
+struct InternalOrderItem: Decodable, Encodable, Identifiable {
     var id: Int?
     var internalOrderId: Int?
     var productId: Int?

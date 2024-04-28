@@ -7,68 +7,125 @@
 
 
 import SwiftUI
-
+import Alamofire
  
 struct OrderView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State private var internalOrders: [InternalOrder] = []
+    // Function to fetch internal orders
     
-    // Dummy data for orders
-    let orders = [
-        Order(productName: "Daniel Wellington Classic", buyerInfo: "John Doe · Stripe · #51202325 · Aug 11", price: "$149.21", imageName: "watch"),
-        // ... add other orders here
-    ]
- 
-    var body: some View {
-        NavigationView {
-            List(orders) { order in
-                HStack {
-                    Image(order.imageName) // Ensure this image exists in your assets
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
-                        .cornerRadius(8)
- 
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text(order.productName)
-                            .font(.headline)
-                        Text(order.buyerInfo)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+    func fetchInternalOrder(completion: @escaping ([InternalOrder]) -> Void) {
+        AF.request("http://localhost:8080/InternalOrder/getALL").response { response in
+            switch response.result {
+            case .success:
+                if let data = response.data {
+                    do {
+                        let internalOrder = try JSONDecoder().decode([InternalOrder].self, from: data)
+                        completion(internalOrder) // Call completion with fetched data
+                    } catch let error as NSError {
+                        print(error)
+                        completion([]) // Call completion with an empty array in case of error
                     }
- 
-                    Spacer()
- 
-                    Text(order.price)
-                        .font(.headline)
-                        .foregroundColor(.primary)
                 }
+            case .failure(let error):
+                print("Error:", error)
+                completion([]) // Call completion with an empty array in case of failure
             }
-            .listStyle(PlainListStyle())
-            .navigationBarItems(leading: Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                HStack {
-                    Image(systemName: "chevron.left")
-                    Text("Home")
-                }
-                .foregroundColor(.blue)
-            })
-            .navigationBarTitle("Orders", displayMode: .inline)
-            .navigationBarHidden(true)
         }
     }
-}
+    var body: some View {
+            NavigationView {
+                List(internalOrders, id: \.id) { order in
+                    internalOrderView(order: order)
+                }
+                .onAppear {
+                    fetchInternalOrder { orders in
+                        internalOrders = orders
+                    }
+                }
+                .navigationBarItems(leading: Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                        Text("Home")
+                    }
+                    .foregroundColor(.blue)
+                })
+                .navigationBarTitle("Orders", displayMode: .inline)
+                .navigationBarHidden(true)
+            }
+        }
+    
+    
+    
  
-struct Order: Identifiable {
-    let id = UUID()
-    let productName: String
-    let buyerInfo: String
-    let price: String
-    let imageName: String
-}
- 
-struct OrderView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrderView()
+    
+
+        private func internalOrderView(order: InternalOrder) -> some View {
+
+            VStack {
+
+                HStack {
+
+                    VStack(alignment: .leading, spacing: 5) {
+
+                        Text("\(order.notes)")
+
+                            .font(.headline)
+
+                        Text(DateFormatter().string(from: order.deliveryDate))
+
+                            .font(.subheadline)
+
+                            .foregroundColor(.secondary)
+
+                    }
+
+                    VStack(alignment: .leading, spacing: 5) {
+
+                        Text("\(order.totalAmount)")
+
+                            .font(.headline)
+
+                        Text("\(order.statusId)")
+
+                            .font(.subheadline)
+
+                            .foregroundColor(.secondary)
+
+                    }
+
+                    Spacer()
+
+                   
+
+                        .font(.headline)
+
+                        .foregroundColor(.primary)
+
+                }
+
+                .padding()
+
+                .background(Color.gray.opacity(0.1))
+
+                .cornerRadius(10)
+
+                .padding(.horizontal)
+
+            }
+
+        }
+
     }
-}
+     
+    struct OrderView_Previews: PreviewProvider {
+
+        static var previews: some View {
+
+            OrderView()
+
+        }
+
+    }

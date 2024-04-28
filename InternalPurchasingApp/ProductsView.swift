@@ -77,13 +77,7 @@ struct ProductsView: View {
             .listStyle(PlainListStyle())
             .navigationBarItems(leading: Button(action: {
                 self.presentationMode.wrappedValue.dismiss()
-            }) {
-                HStack {
-                    Image(systemName: "chevron.left")
-                    Text("Dashboard")
-                }
-                .foregroundColor(primaryColor) // Use primary color for navigation button text
-            })
+            }) {})
             .navigationBarTitle("Products", displayMode: .inline)
             .background(backgroundColor.edgesIgnoringSafeArea(.all)) // Use dark green for the background
         }

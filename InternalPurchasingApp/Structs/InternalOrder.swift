@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct InternalOrder: Decodable{
-    var id: Int
-    var totalAmount: Float?
-    var statusId: Int?
-    var deliveryDate: Date?
-    var notes: String?
+struct InternalOrder: Decodable, Identifiable, Encodable{
+    var id: Int 
+    var totalAmount: Float
+    var statusId: Int
+    var deliveryDate: Date
+    var notes: String
     var createdAt: Date?
     var updatedAt: Date?
     var deactivatedAt: Date?
