@@ -5,18 +5,17 @@
 //  Created by Jannett Arredondo on 4/14/24.
 //
 
+ 
 import SwiftUI
 import Alamofire
-
+ 
 struct LaunchScreenView: View {
-    @EnvironmentObject var navigationViewModel: NavigationViewModel
-
     @State private var isShowingLoginView = false
     @State private var isShowingSignupView = false // State variable for SignupView
-
+ 
     let primaryColor = Color(hex: "c2a25d")
     let backgroundColor = Color(hex: "053426")
-
+ 
     var body: some View {
         NavigationStack { // Use NavigationStack for better control in iOS 16 and later
             GeometryReader { geometry in
@@ -78,7 +77,7 @@ struct LaunchScreenView: View {
         }
     }
 }
-
+ 
 struct LaunchScreenView_Previews: PreviewProvider {
     static var previews: some View {
         LaunchScreenView()
