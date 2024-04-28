@@ -1,0 +1,18 @@
+//
+//  Config.plist
+//  InternalPurchasingApp
+//
+//  Created by Jannett Arredondo on 4/28/24.
+//
+
+import Foundation
+
+if let path = Bundle.main.path(forResource: "Config", ofType: "plist"),
+   let configDict = NSDictionary(contentsOfFile: path) as? [String: Any] {
+    // Access configuration data from configDict
+    let apiUrl = configDict["API_URL"] as? String ?? ""
+    let apiKey = configDict["API_KEY"] as? String ?? ""
+    // Use configuration data in your application
+} else {
+    print("Error: Unable to load configuration file")
+}

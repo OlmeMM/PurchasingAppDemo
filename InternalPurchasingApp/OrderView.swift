@@ -14,8 +14,9 @@ struct OrderView: View {
     @State private var internalOrders: [InternalOrder] = []
     // Function to fetch internal orders
     
-    func fetchInternalOrder(completion: @escaping ([InternalOrder]) -> Void) {
-        AF.request("http://localhost:8080/InternalOrder/getALL").response { response in
+    
+    func fetchInternalOrder(apiUrl: String, completion: @escaping ([InternalOrder]) -> Void) {
+        AF.request("\(apiUrl)InternalOrder/getALL").response { response in
             switch response.result {
             case .success:
                 if let data = response.data {

@@ -42,6 +42,7 @@
 		F13BE0CB2BC09A510035DE4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13BE0CA2BC09A510035DE4B /* ContentView.swift */; };
 		F13BE0CD2BC09A540035DE4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13BE0CC2BC09A540035DE4B /* Assets.xcassets */; };
 		F13BE0D02BC09A540035DE4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13BE0CF2BC09A540035DE4B /* Preview Assets.xcassets */; };
+		F14BFA1C2BDEF99600B5E17F /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = F14BFA1B2BDEF99600B5E17F /* Config.plist */; };
 		F16DB32E2BD5FCEA00071D8C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DB32D2BD5FCEA00071D8C /* Extension.swift */; };
 		F16DB3302BD5FD2B00071D8C /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16DB32F2BD5FD2B00071D8C /* NavigationViewModel.swift */; };
 		F1726FBA2BCC5EAF00690832 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1726FB92BCC5EAF00690832 /* SideMenuView.swift */; };
@@ -89,6 +90,7 @@
 		F13BE0CC2BC09A540035DE4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F13BE0CF2BC09A540035DE4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F14BFA1A2BDDF32800B5E17F /* InternalPurchasingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = InternalPurchasingApp.app; path = "/Users/jannettarredondo/Desktop/mobileapp/PurchasingAppDemo/build/Debug-iphoneos/InternalPurchasingApp.app"; sourceTree = "<absolute>"; };
+		F14BFA1B2BDEF99600B5E17F /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Config.plist; sourceTree = "<group>"; };
 		F16DB32D2BD5FCEA00071D8C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F16DB32F2BD5FD2B00071D8C /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		F1726FB92BCC5EAF00690832 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				5BEE8BC62BDB131F009727AA /* InternalPurchasingApp */,
 				F13BE0CC2BC09A540035DE4B /* Assets.xcassets */,
 				F13BE0CE2BC09A540035DE4B /* Preview Content */,
+				F14BFA1B2BDEF99600B5E17F /* Config.plist */,
 			);
 			path = InternalPurchasingApp;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				5BEE8BC72BDB1320009727AA /* Preview Assets.xcassets in Resources */,
 				F13BE0D02BC09A540035DE4B /* Preview Assets.xcassets in Resources */,
 				F13BE0CD2BC09A540035DE4B /* Assets.xcassets in Resources */,
+				F14BFA1C2BDEF99600B5E17F /* Config.plist in Resources */,
 				5BEE8BCA2BDB1320009727AA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
