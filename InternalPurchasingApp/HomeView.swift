@@ -38,22 +38,21 @@ struct HomeView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                mainContent
-                    .blur(radius: isShowingSideMenu ? 20 : 0)
-                    .animation(.easeInOut, value: isShowingSideMenu)
-                    .disabled(isShowingSideMenu)
-                
-                // Side Menu layer
-                if isShowingSideMenu {
-                    sideMenu
-                }
+        ZStack {
+            mainContent
+                .blur(radius: isShowingSideMenu ? 20 : 0)
+                .animation(.easeInOut, value: isShowingSideMenu)
+                .disabled(isShowingSideMenu)
+            
+            // Side Menu layer
+            if isShowingSideMenu {
+                sideMenu
             }
-            .navigationBarItems(leading: menuButton)
-            .navigationBarTitleDisplayMode(.inline)
-            .background(backgroundColor.edgesIgnoringSafeArea(.all))
         }
+        .navigationBarItems(leading: menuButton)
+        .navigationBarTitleDisplayMode(.inline)
+        .background(backgroundColor.edgesIgnoringSafeArea(.all))
+        .navigationBarBackButtonHidden(true) // Add this line
     }
     
     private var mainContent: some View {
@@ -64,7 +63,10 @@ struct HomeView: View {
                     .fontWeight(.bold)
                     .foregroundColor(textColor)
                     .padding([.horizontal, .top])
-                
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            
+            VStack(alignment: .leading, spacing: 20) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(dashboardIcons, id: \.0) { icon in
@@ -195,8 +197,8 @@ struct HomeView: View {
     }
 }
 
-   struct HomeView_Previews: PreviewProvider {
-       static var previews: some View {
-           HomeView()
-       }
-   }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+}

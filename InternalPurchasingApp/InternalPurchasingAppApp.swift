@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-import SwiftUI
-
 @main
 struct MyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentViewAuth()
+            LaunchScreenView()
         }
     }
 }

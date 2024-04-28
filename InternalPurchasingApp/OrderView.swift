@@ -52,6 +52,7 @@ struct OrderView: View {
                 .foregroundColor(.blue)
             })
             .navigationBarTitle("Orders", displayMode: .inline)
+            .navigationBarHidden(true)
         }
     }
 }

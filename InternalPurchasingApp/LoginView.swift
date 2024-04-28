@@ -8,60 +8,75 @@
 import SwiftUI
 import Alamofire
 import AppAuth
-
+ 
 struct LoginView: View {
+    @Environment(\.presentationMode) var presentationMode  // Used to dismiss the view
+    
     @State private var emailOrPhone = ""
     @State private var password = ""
-
+    
+    let backgroundColor = Color(hex: "053426") // Deep green background
+    let buttonColor = Color(hex: "c2a25d") // Gold color for buttons
+    let inputFieldBorderColor = Color(hex: "c2a25d") // Gold color for input fields border
+    let textColor = Color.white // White text for better contrast
+    
+    @State private var isDashboardActive = false // Added state for navigation
+    
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
+        NavigationView {
+            VStack(alignment: .leading) {
+                
                 Text("Sign In")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
-                Spacer()
-            }
-            .padding()
-
-            TextField("E-mail or phone number", text: $emailOrPhone)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.gray, lineWidth: 1)
-                )
-                .padding(.horizontal, 16)
-            
-            SecureField("Password", text: $password)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.gray, lineWidth: 1)
-                )
+                    .foregroundColor(textColor)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 20)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                
+                Group {
+                    TextField("E-mail or phone number", text: $emailOrPhone)
+                        .padding()
+                        .background(Color.white) // White background for text field
+                        .cornerRadius(8)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(inputFieldBorderColor, lineWidth: 1)
+                        )
+                    
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .background(Color.white) // White background for secure field
+                        .cornerRadius(8)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(inputFieldBorderColor, lineWidth: 1)
+                        )
+                    
+                    NavigationLink(destination: HomeView()) {
+                        Text("Log In")
+                            .foregroundColor(textColor)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(buttonColor)
+                            .cornerRadius(10)
+                        
+                        // Add addictional code
+                    }
+                }
                 .padding(.horizontal, 16)
                 .padding(.top, 16)
-
-            Button("Log In") {
-                // Handle log in action
-                // performOAuthAuthorization()
+                
+                Spacer()
             }
-            .foregroundColor(.white)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Color.blue)
-            .cornerRadius(10)
-            .padding(.horizontal, 50)
-            .padding(.top, 32)
-            
-            Spacer()
+            .background(backgroundColor.edgesIgnoringSafeArea(.all))
+            .navigationBarHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
     }
-
 }
-
+ 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView().environmentObject(NavigationViewModel())
     }
 }
