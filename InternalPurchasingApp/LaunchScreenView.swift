@@ -9,8 +9,6 @@ import SwiftUI
 import Alamofire
 
 struct LaunchScreenView: View {
-    @EnvironmentObject var navigationViewModel: NavigationViewModel
-
     @State private var isShowingLoginView = false
     @State private var isShowingSignupView = false // State variable for SignupView
 
