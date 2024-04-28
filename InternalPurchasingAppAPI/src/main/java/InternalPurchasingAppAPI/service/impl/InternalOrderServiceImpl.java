@@ -89,9 +89,12 @@ public class InternalOrderServiceImpl implements InternalOrderService {
         InternalOrderDto internalOrderDto = placedInternalOrderAttempt.getPlacedOrder();
         InternalOrderDto internalOrderDtoResponse = createInternalOrder(internalOrderDto);
 
+        // get internalOrderId to assign to each internal order item internalOrderId property
         Integer internalOrderId = internalOrderDtoResponse.getId();
 
+        //get the list of internal orders
         List<InternalOrderItemDto> internalOrderItemDtoList = placedInternalOrderAttempt.getPlacedOrderItems();
+        // insert each internal order item into the internal order items table
         processOrderItems(internalOrderItemDtoList, internalOrderId);
 
         return internalOrderDtoResponse;
