@@ -1,14 +1,13 @@
 //
-//  InternalOrders.swift
+//  InternalOrder.swift
 //  InternalPurchasingApp
 //
-//  Created by Jannett Arredondo on 4/25/24.
+//  Created by Olme Matias Molina on 4/25/24.
 //
 
 import Foundation
 
 struct InternalOrder: Decodable{
-    
     var id: Int
     var totalAmount: Float?
     var statusId: Int?

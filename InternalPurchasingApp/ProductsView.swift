@@ -5,11 +5,10 @@
 //  Created by Jannett Arredondo on 4/14/24.
 //
 
-import SwiftUI
-
 import Alamofire
-
-
+import Foundation
+import SwiftUI
+ 
 struct ProductsView: View {
     @Environment(\.presentationMode) var presentationMode
     // Define your UI colors
@@ -20,26 +19,26 @@ struct ProductsView: View {
     let subtitleTextColor = Color(hex: "BFBFBF") // Subtitle text
     
     
-    func fetchProducts() -> [Product]{
-       // Alamofire.Request("localhost:8080/product/getAll")
-        AF.request("Http://localhost:8080/product/getAll").response{ response in
-            switch response.result{
-            case .success(let data):
-                if let data = data{
-                    print(data)
-                    //Decode the JSON
+    func fetchProducts() -> [Product] {
+        var products = [Product]()
+        
+        AF.request("localhost:8080/product/getAll").response { response in
+            switch response.result {
+            case .success:
+                if let data = response.data {
                     do {
-                        let product = try JSONDecoder().decode(Product.self,from :data)
-                        print("Product:",product)
-                    } catch {
-                        print("Error:",error)
+                        products = try JSONDecoder().decode([Product].self, from: data)
+                    } catch let error as NSError {
+                        print(error)
                     }
                 }
-            }
             case .failure(let error):
                 print("Error:", error)
             }
         }
+        
+        return products
+    }
     
     // Dummy data for products
     
@@ -49,7 +48,7 @@ struct ProductsView: View {
         
         NavigationView {
             List(productList) { product in
- // Add 'List' here to correctly create a list of products
+// Add 'List' here to correctly create a list of products
                 HStack {
                     Image(systemName: product.imageName) // Replace with your image assets
                         .resizable()
@@ -98,7 +97,7 @@ struct ProductsView_Previews: PreviewProvider {
     }
     
 }
-
+ 
 struct Product: Identifiable, Decodable, Encodable {
         let id: Int
         let name: String
@@ -109,6 +108,7 @@ struct Product: Identifiable, Decodable, Encodable {
     }
 import Foundation
 import Combine
+import SwiftUI
  
  
 class ProductsViewModel: ObservableObject {
@@ -120,9 +120,6 @@ class ProductsViewModel: ObservableObject {
     
     // Function to fetch products from the server
    
-    
-    
-    
     func fetchProducts() {
         
         guard let url = URL(string: "https://localhost:8080/product/getAll") else {
@@ -232,5 +229,3 @@ class ProductsViewModel: ObservableObject {
         }.resume()
     }
 }
-
-

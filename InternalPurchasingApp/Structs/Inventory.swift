@@ -2,7 +2,7 @@
 //  Inventory.swift
 //  InternalPurchasingApp
 //
-//  Created by Jannett Arredondo on 4/25/24.
+//  Created by Olme Matias Molina on 4/27/24.
 //
 
 import Foundation

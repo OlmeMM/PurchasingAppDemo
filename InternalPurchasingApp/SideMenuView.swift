@@ -4,10 +4,9 @@
 //
 //  Created by Jannett Arredondo on 4/14/24.
 //
-
+ 
 import SwiftUI
 
- 
 struct SideMenuView: View {
     @Binding var isShowingSideMenu: Bool
     
