@@ -50,17 +50,6 @@
 		F1726FC02BCC6EE800690832 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1726FBF2BCC6EE800690832 /* OrderView.swift */; };
 		F1726FC22BCC77C900690832 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1726FC12BCC77C900690832 /* ProductsView.swift */; };
 		F1726FC62BCC79DF00690832 /* ActivityFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1726FC52BCC79DE00690832 /* ActivityFeedView.swift */; };
-		F1A80F6C2BDA0137006AB327 /* SessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A80F6B2BDA0137006AB327 /* SessionSettings.swift */; };
-		F1A80F6F2BDA01E0006AB327 /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F1A80F6E2BDA01E0006AB327 /* AppAuth */; };
-		F1A80F712BDA01E0006AB327 /* AppAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = F1A80F702BDA01E0006AB327 /* AppAuthCore */; };
-		F1A80F732BDA01E0006AB327 /* AppAuthTV in Frameworks */ = {isa = PBXBuildFile; productRef = F1A80F722BDA01E0006AB327 /* AppAuthTV */; };
-		F1A80F772BDA023C006AB327 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A80F762BDA023C006AB327 /* Authorization.swift */; };
-		F1A80F922BDB0D31006AB327 /* InternalOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A80F912BDB0D31006AB327 /* InternalOrder.swift */; };
-		F1A80F962BDB1042006AB327 /* Warehouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A80F952BDB1042006AB327 /* Warehouse.swift */; };
-		F1A80F9A2BDB109E006AB327 /* PlacedInternalOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A80F992BDB109E006AB327 /* PlacedInternalOrder.swift */; };
-		F1A80F9C2BDB10C2006AB327 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A80F9B2BDB10C2006AB327 /* Inventory.swift */; };
-		F1A80F9E2BDB10E3006AB327 /* InternalOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A80F9D2BDB10E3006AB327 /* InternalOrderItem.swift */; };
-		F1A80FA02BDB10FB006AB327 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A80F9F2BDB10FB006AB327 /* Category.swift */; };
 		F1E2EAF52BC0ABD5005E1847 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F1E2EAF42BC0ABD5005E1847 /* Alamofire */; };
 		F1E2EAF72BC0ABD5005E1847 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F1E2EAF62BC0ABD5005E1847 /* AlamofireDynamic */; };
 		F1E2EAFB2BC0B2BC005E1847 /* API'S.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E2EAFA2BC0B2BC005E1847 /* API'S.swift */; };
@@ -98,11 +87,11 @@
 		5BEE8BC52BDB131F009727AA /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		5BF6FA622BD8D45A00C7DF1C /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		5BF6FA642BD8D5F800C7DF1C /* SessionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSettings.swift; sourceTree = "<group>"; };
-		F13BE0C52BC09A510035DE4B /* InternalPurchasingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternalPurchasingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13BE0C82BC09A510035DE4B /* InternalPurchasingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalPurchasingAppApp.swift; sourceTree = "<group>"; };
 		F13BE0CA2BC09A510035DE4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F13BE0CC2BC09A540035DE4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F13BE0CF2BC09A540035DE4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F14BFA1A2BDDF32800B5E17F /* InternalPurchasingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = InternalPurchasingApp.app; path = "/Users/jannettarredondo/Desktop/mobileapp/PurchasingAppDemo/build/Debug-iphoneos/InternalPurchasingApp.app"; sourceTree = "<absolute>"; };
 		F16DB32D2BD5FCEA00071D8C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F16DB32F2BD5FD2B00071D8C /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		F1726FB92BCC5EAF00690832 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
@@ -110,14 +99,6 @@
 		F1726FBF2BCC6EE800690832 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		F1726FC12BCC77C900690832 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		F1726FC52BCC79DE00690832 /* ActivityFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeedView.swift; sourceTree = "<group>"; };
-		F1A80F6B2BDA0137006AB327 /* SessionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSettings.swift; sourceTree = "<group>"; };
-		F1A80F762BDA023C006AB327 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
-		F1A80F912BDB0D31006AB327 /* InternalOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalOrder.swift; sourceTree = "<group>"; };
-		F1A80F952BDB1042006AB327 /* Warehouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warehouse.swift; sourceTree = "<group>"; };
-		F1A80F992BDB109E006AB327 /* PlacedInternalOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacedInternalOrder.swift; sourceTree = "<group>"; };
-		F1A80F9B2BDB10C2006AB327 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		F1A80F9D2BDB10E3006AB327 /* InternalOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalOrderItem.swift; sourceTree = "<group>"; };
-		F1A80F9F2BDB10FB006AB327 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F1E2EAFA2BC0B2BC005E1847 /* API'S.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API'S.swift"; sourceTree = "<group>"; };
 		F1E2EB022BC0B86D005E1847 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F1E2EB082BCC4294005E1847 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
@@ -192,16 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				F13BE0C72BC09A510035DE4B /* InternalPurchasingApp */,
-				F13BE0C62BC09A510035DE4B /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		F13BE0C62BC09A510035DE4B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F13BE0C52BC09A510035DE4B /* InternalPurchasingApp.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		F13BE0C72BC09A510035DE4B /* InternalPurchasingApp */ = {
@@ -239,19 +211,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		F1A80F902BDB0D0A006AB327 /* Structs */ = {
-			isa = PBXGroup;
-			children = (
-				F1A80F912BDB0D31006AB327 /* InternalOrder.swift */,
-				F1A80F9F2BDB10FB006AB327 /* Category.swift */,
-				F1A80F9B2BDB10C2006AB327 /* Inventory.swift */,
-				F1A80F992BDB109E006AB327 /* PlacedInternalOrder.swift */,
-				F1A80F952BDB1042006AB327 /* Warehouse.swift */,
-				F1A80F9D2BDB10E3006AB327 /* InternalOrderItem.swift */,
-			);
-			path = Structs;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,7 +236,7 @@
 				5BEE8BAC2BDADB8E009727AA /* MSAL */,
 			);
 			productName = InternalPurchasingApp;
-			productReference = F13BE0C52BC09A510035DE4B /* InternalPurchasingApp.app */;
+			productReference = F14BFA1A2BDDF32800B5E17F /* InternalPurchasingApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -309,7 +268,7 @@
 				5BB467F52BCE325100E29958 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
 				5BEE8BAB2BDADB8E009727AA /* XCRemoteSwiftPackageReference "microsoft-authentication-library-for-objc" */,
 			);
-			productRefGroup = F13BE0C62BC09A510035DE4B /* Products */;
+			productRefGroup = F13BE0BC2BC09A500035DE4B;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -365,7 +324,6 @@
 				F1E2EB032BC0B86D005E1847 /* LoginView.swift in Sources */,
 				5BEE8BD22BDB1320009727AA /* InternalPurchasingAppApp.swift in Sources */,
 				F1726FC22BCC77C900690832 /* ProductsView.swift in Sources */,
-				F1A80F962BDB1042006AB327 /* Warehouse.swift in Sources */,
 				F1726FC02BCC6EE800690832 /* OrderView.swift in Sources */,
 				5BEE8BDB2BDB1320009727AA /* SignupView.swift in Sources */,
 				5BEE8BD82BDB1320009727AA /* PurchasingAppApp.swift in Sources */,
@@ -377,9 +335,6 @@
 				5BAD53EE2BDD3E5400AEED03 /* Category.swift in Sources */,
 				F13BE0C92BC09A510035DE4B /* InternalPurchasingAppApp.swift in Sources */,
 				F1E2EB092BCC4294005E1847 /* LaunchScreenView.swift in Sources */,
-				F1A80FA02BDB10FB006AB327 /* Category.swift in Sources */,
-				F1A80F9C2BDB10C2006AB327 /* Inventory.swift in Sources */,
-				F1A80F9A2BDB109E006AB327 /* PlacedInternalOrder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
