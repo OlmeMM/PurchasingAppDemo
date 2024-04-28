@@ -30,7 +30,7 @@ struct SideMenuView: View {
                         Spacer() // Push content to the left edge
                     }
                     .padding(.trailing, 8) // Add padding to the trailing edge of the HStack
-                    .padding(.vertical, 4) // Add vertical padding for better spacing
+                    .padding(.vertical, 8) // Add vertical padding for better spacing
                 }
             }
             Spacer() // Push all content to the top

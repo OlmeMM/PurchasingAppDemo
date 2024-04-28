@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var selectedFilter = "All" // Initial filter selection
     
-    @State private var isShowingSideMenu = false// State to control the side menu visibility
+    @State private var isShowingSideMenu = false // State to control the side menu visibility
     
     let primaryColor = Color(hex: "c2a25d")
     let backgroundColor = Color(hex: "053426")
@@ -19,22 +19,20 @@ struct HomeView: View {
     let subtitleTextColor = Color(hex: "BFBFBF")
     
     let dashboardIcons = [
-        ("Customers", "person.2.fill"),
         ("Orders", "cart.fill"),
-        ("Products", "bag.fill"),
-        ("Activity", "person.3.fill")
+        ("Products", "bag.fill")
     ]
     
-    let summaryStats = [
-        ("TOTAL REVENUE", "$32,575"),
-        ("TOTAL PROFIT", "$20,590"),
-        ("TOTAL VIEWS", "17,10K")
+    let dashboardIconsNavg: [AnyView] = [
+        AnyView(OrderView()),
+        AnyView(ProductsView())
     ]
     
     let recentOrders = [
-        ("Daniel Wellington Classic", "John Doe - Stripe", "#51202325", "$149.21", "Aug 11"),
-        ("Skater Dress", "Adele Camp - Square", "#645644", "$260", "Aug 11"),
-        ("Woodland Shoes", "Beverly Alen - Paypal", "#51202563", "$94.54", "Aug 10")
+        ("Daniel Wellington Classic", "John Doe - Stripe", "#51202325", "$149.21", "Apr 28"),
+        ("Skater Dress", "Adele Camp - Square", "#645644", "$260", "Apr 27"),
+        ("Woodland Shoes", "Beverly Alen - Paypal", "#51202563", "$94.54", "Apr 23"),
+        ("Test 1", "Beverly Alen - Payherf", "#51204343", "$23.50", "Feb 21")
     ]
     
     var body: some View {
@@ -52,7 +50,7 @@ struct HomeView: View {
         .navigationBarItems(leading: menuButton)
         .navigationBarTitleDisplayMode(.inline)
         .background(backgroundColor.edgesIgnoringSafeArea(.all))
-        .navigationBarBackButtonHidden(true) // Add this line
+        .navigationBarBackButtonHidden(true)
     }
     
     private var mainContent: some View {
@@ -68,56 +66,26 @@ struct HomeView: View {
             
             VStack(alignment: .leading, spacing: 20) {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
-                        ForEach(dashboardIcons, id: \.0) { icon in
-                            VStack {
-                                Image(systemName: icon.1)
-                                    .font(.title)
-                                    .foregroundColor(primaryColor)
-                                    .padding()
-                                    .background(lightBackgroundColor)
-                                    .clipShape(Circle())
-                                Text(icon.0)
-                                    .font(.caption)
-                                    .foregroundColor(textColor)
+                    HStack(spacing: 60) {
+                        ForEach(dashboardIcons.indices, id: \.self) { index in
+                            NavigationLink(destination: dashboardIconsNavg[index]) {
+                                VStack {
+                                    Image(systemName: dashboardIcons[index].1)
+                                        .font(.title)
+                                        .foregroundColor(primaryColor)
+                                        .padding()
+                                        .background(lightBackgroundColor)
+                                        .clipShape(Circle())
+                                    Text(dashboardIcons[index].0)
+                                        .font(.caption)
+                                        .foregroundColor(textColor)
+                                }
+                                .frame(width: 80, height: 100)
                             }
-                            .frame(width: 80, height: 100)
                         }
                     }
                     .padding(.horizontal)
                 }
-                
-                HStack {
-                    Image(systemName: "waveform.path.ecg")
-                        .foregroundColor(.red)
-                    Text("Live Feed")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(textColor)
-                }
-                .padding(.horizontal)
-                
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(primaryColor, lineWidth: 2)
-                    .frame(height: 200)
-                    .padding(.horizontal)
-                    .overlay(Text("Chart Placeholder").foregroundColor(textColor))
-                
-                HStack {
-                    ForEach(summaryStats, id: \.0) { stat in
-                        VStack {
-                            Text(stat.0)
-                                .foregroundColor(subtitleTextColor)
-                                .font(.caption)
-                            Text(stat.1)
-                                .foregroundColor(textColor)
-                                .font(.title2)
-                                .fontWeight(.bold)
-                        }
-                        .frame(maxWidth: .infinity)
-                    }
-                }
-                .padding(.horizontal)
                 
                 HStack(){
                     Text("Recent Orders")
@@ -127,17 +95,7 @@ struct HomeView: View {
                         .padding(.horizontal)
                     
                     Spacer()
-                    
-                    Picker(selection: $selectedFilter, label: Text("Filter")) {
-                        Text("All").tag("All")
-                        Text("Today").tag("Today")
-                        Text("Yesterday").tag("Yesterday")
-                        Text("This Week").tag("This Week")
-                        Text("This Month").tag("This Month")
-                    }
-                    .pickerStyle(.menu)
                 }
-                
                 
                 ForEach(recentOrders, id: \.1) { order in
                     HStack {
@@ -167,7 +125,6 @@ struct HomeView: View {
             .background(backgroundColor)
         }
     }
-    
     
     private var sideMenu: some View {
         GeometryReader { _ in

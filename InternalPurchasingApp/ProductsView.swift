@@ -1,10 +1,3 @@
-//
-//  ProductsView.swift
-//  InternalPurchasingApp
-//
-//  Created by Jannett Arredondo on 4/14/24.
-//
-
 import Alamofire
 import Foundation
 import SwiftUI
@@ -77,13 +70,7 @@ struct ProductsView: View {
             .listStyle(PlainListStyle())
             .navigationBarItems(leading: Button(action: {
                 self.presentationMode.wrappedValue.dismiss()
-            }) {
-                HStack {
-                    Image(systemName: "chevron.left")
-                    Text("Dashboard")
-                }
-                .foregroundColor(primaryColor) // Use primary color for navigation button text
-            })
+            }) {})
             .navigationBarTitle("Products", displayMode: .inline)
             .background(backgroundColor.edgesIgnoringSafeArea(.all)) // Use dark green for the background
         }
@@ -102,6 +89,7 @@ struct Product: Identifiable, Decodable, Encodable {
         let id: Int
         let name: String
         let description: String
+        let price: Double
         let status: String
         let imageName: String
     }

@@ -54,6 +54,7 @@ struct OrderView: View {
             .navigationBarTitle("Orders", displayMode: .inline)
             .navigationBarHidden(true)
         }
+        .background(Color(hex: "053426"))
     }
 }
 

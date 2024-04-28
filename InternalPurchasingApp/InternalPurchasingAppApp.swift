@@ -15,5 +15,3 @@ struct MyApp: App {
         }
     }
 }
-
-
