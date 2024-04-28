@@ -3,10 +3,7 @@ package InternalPurchasingAppAPI.persistence.entitiy;
 import jakarta.persistence.*;
 import lombok.*;
 
-import org.hibernate.annotations.UuidGenerator;
-
 import java.util.Date;
-import java.util.UUID;
 
 @Setter
 @Getter
