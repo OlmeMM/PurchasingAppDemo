@@ -13,7 +13,7 @@ import java.util.*;
 
 
 @RestController
-@RequestMapping("/internal-order")
+@RequestMapping("/internalOrder")
 public class InternalOrderController {
 
     private final InternalOrderService orderService;
@@ -35,7 +35,7 @@ public class InternalOrderController {
         return ResponseEntity.ok(internalInternalOrderDto);
     }
 
-    @GetMapping("/get-all")
+    @GetMapping("/getAll")
     public ResponseEntity<List<InternalOrderDto>> getAllInternalOrders(){
         List<InternalOrderDto> orders = orderService.getAllInternalOrders();
         return ResponseEntity.ok(orders);
@@ -47,7 +47,7 @@ public class InternalOrderController {
         return ResponseEntity.ok(internalInternalOrderDto);
     }
 
-    @PostMapping("/place-order")
+    @PostMapping("/placeOrder")
     public ResponseEntity<InternalOrderDto> placeAnInternalOrder(@RequestBody PlacedInternalOrderDto placedInternalOrderAttempt){
         InternalOrderDto placedOrderAttemptResponse = orderService.placeAnInternalOrder(placedInternalOrderAttempt);
         return ResponseEntity.ok(placedOrderAttemptResponse);
