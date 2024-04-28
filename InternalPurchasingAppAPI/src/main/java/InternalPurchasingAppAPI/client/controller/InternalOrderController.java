@@ -35,7 +35,7 @@ public class InternalOrderController {
         return ResponseEntity.ok(internalInternalOrderDto);
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/get-all")
     public ResponseEntity<List<InternalOrderDto>> getAllInternalOrders(){
         List<InternalOrderDto> orders = orderService.getAllInternalOrders();
         return ResponseEntity.ok(orders);
@@ -53,7 +53,11 @@ public class InternalOrderController {
         return ResponseEntity.ok(placedOrderAttemptResponse);
     }
 
-    //@PostMapping("/deactivate/{id}")
+//    //@PostMapping("/deactivate/{id}")
+//    public ResponseEntity<InternalOrderDto> deactivateInternalOrder(Integer internalOrderId){
+//        InternalOrderDto deactivatedDto = orderService.deactivateInternalOrder(internalOrderId);
+//        return ResponseEntity.ok(deactivatedDto);
+//    }
 
 
     @DeleteMapping

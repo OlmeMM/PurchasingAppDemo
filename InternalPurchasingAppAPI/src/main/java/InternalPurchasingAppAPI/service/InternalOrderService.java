@@ -17,4 +17,6 @@ public interface InternalOrderService {
     void deleteInternalOrder(Integer id);
 
     InternalOrderDto placeAnInternalOrder(PlacedInternalOrderDto placedInternalOrderAttempt);
+
+//    InternalOrderDto deactivateInternalOrder(Integer internalOrderId);
 }
