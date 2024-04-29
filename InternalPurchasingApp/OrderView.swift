@@ -22,8 +22,7 @@ struct OrderView: View {
                 if let data = response.data {
                     do {
                         print("datafromserver: ",data)
-                        let decoder = JSONDecoder()
-                            decoder.dateDecodingStrategy = .iso8601
+                        
                         let internalOrder = try JSONDecoder().decode([InternalOrder].self, from: data)
                         print(internalOrder)
                         

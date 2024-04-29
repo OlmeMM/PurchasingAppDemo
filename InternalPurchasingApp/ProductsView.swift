@@ -95,10 +95,7 @@ struct ProductsView_Previews: PreviewProvider {
 struct Product: Identifiable, Decodable, Encodable {
         let id: Int
         let name: String
-        let description: String
         let price: Double
-        let status: String
-        let imageName: String
     }
 import Foundation
 import Combine
