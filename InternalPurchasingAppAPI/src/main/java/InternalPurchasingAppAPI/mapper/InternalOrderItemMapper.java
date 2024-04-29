@@ -10,10 +10,7 @@ public class InternalOrderItemMapper {
                 internalOrderItem.getId(),
                 internalOrderItem.getInternalOrderId(),
                 internalOrderItem.getProductId(),
-                internalOrderItem.getStatus(),
-                internalOrderItem.getCreatedAt(),
-                internalOrderItem.getUpdatedAt(),
-                internalOrderItem.getDeactivatedAt()
+                internalOrderItem.getStatus()
         );
     }
 
@@ -22,10 +19,7 @@ public class InternalOrderItemMapper {
                 internalOrderItemDto.getId(),
                 internalOrderItemDto.getInternalOrderId(),
                 internalOrderItemDto.getProductId(),
-                internalOrderItemDto.getStatus(),
-                internalOrderItemDto.getCreatedAt(),
-                internalOrderItemDto.getUpdatedAt(),
-                internalOrderItemDto.getDeactivatedAt()
+                internalOrderItemDto.getStatus()
         );
     }
 }
