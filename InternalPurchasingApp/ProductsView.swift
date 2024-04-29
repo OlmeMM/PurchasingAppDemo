@@ -22,7 +22,7 @@ struct ProductsView: View {
     func fetchProducts() -> [Product] {
         var products = [Product]()
         
-        AF.request("localhost:8080/product/getAll").response { response in
+        AF.request("https://7c1f-2603-6080-8f01-5295-b011-7537-c673-c88a.ngrok-free.app/product/getAll").response { response in
             switch response.result {
             case .success:
                 if let data = response.data {

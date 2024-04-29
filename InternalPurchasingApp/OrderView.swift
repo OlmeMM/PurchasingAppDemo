@@ -15,13 +15,18 @@ struct OrderView: View {
     // Function to fetch internal orders
     
     
-    func fetchInternalOrder(apiUrl: String, completion: @escaping ([InternalOrder]) -> Void) {
-        AF.request("\(apiUrl)InternalOrder/getALL").response { response in
+    func fetchInternalOrder(completion: @escaping ([InternalOrder]) -> Void) {
+        AF.request("https://7c1f-2603-6080-8f01-5295-b011-7537-c673-c88a.ngrok-free.app/internalOrder/getAll").response { response in
             switch response.result {
             case .success:
                 if let data = response.data {
                     do {
+                        print("datafromserver: ",data)
+                        let decoder = JSONDecoder()
+                            decoder.dateDecodingStrategy = .iso8601
                         let internalOrder = try JSONDecoder().decode([InternalOrder].self, from: data)
+                        print(internalOrder)
+                        
                         completion(internalOrder) // Call completion with fetched data
                     } catch let error as NSError {
                         print(error)
@@ -75,7 +80,7 @@ struct OrderView: View {
 
                             .font(.headline)
 
-                        Text(DateFormatter().string(from: order.deliveryDate))
+                     
 
                             .font(.subheadline)
 

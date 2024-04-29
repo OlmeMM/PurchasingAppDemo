@@ -54,7 +54,7 @@ struct HomeView: View {
     
     
     func fetchInternalOrder(completion: @escaping ([InternalOrder]?) -> Void) {
-        AF.request("http://localhost:8080/InternalOrder/getALL").response { response in
+        AF.request("https://7c1f-2603-6080-8f01-5295-b011-7537-c673-c88a.ngrok-free.app/internalOrder/getAll").response { response in
             switch response.result {
             case .success:
                 if let data = response.data {
