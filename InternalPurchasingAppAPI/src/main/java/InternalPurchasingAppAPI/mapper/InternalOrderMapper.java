@@ -11,11 +11,8 @@ public class InternalOrderMapper {
                 internalOrder.getId(),
                 internalOrder.getTotalAmount(),
                 internalOrder.getStatusId(),
-                internalOrder.getDeliveryDate(),
-                internalOrder.getNotes(),
-                internalOrder.getCreatedAt(),
-                internalOrder.getUpdatedAt(),
-                internalOrder.getDeactivatedAt()
+                internalOrder.getNotes()
+
         );
     }
 
@@ -24,11 +21,7 @@ public class InternalOrderMapper {
                 internalOrderDto.getId(),
                 internalOrderDto.getTotalAmount(),
                 internalOrderDto.getStatusId(),
-                internalOrderDto.getDeliveryDate(),
-                internalOrderDto.getNotes(),
-                internalOrderDto.getCreatedAt(),
-                internalOrderDto.getUpdatedAt(),
-                internalOrderDto.getDeactivatedAt()
+                internalOrderDto.getNotes()
         );
     }
 }

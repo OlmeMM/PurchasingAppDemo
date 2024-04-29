@@ -22,7 +22,4 @@ public class InternalOrderItem {
     private Integer internalOrderId;
     private Integer productId;
     private Integer status;
-    private Date createdAt;
-    private Date updatedAt;
-    private Date deactivatedAt;
 }

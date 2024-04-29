@@ -58,11 +58,8 @@ public class InternalOrderServiceImpl implements InternalOrderService {
 
         internalOrder.setTotalAmount(updatedOrder.getTotalAmount());
         internalOrder.setStatusId(updatedOrder.getStatusId());
-        internalOrder.setDeliveryDate(updatedOrder.getDeliveryDate());
         internalOrder.setNotes(updatedOrder.getNotes());
-        internalOrder.setCreatedAt(updatedOrder.getCreatedAt());
-        internalOrder.setDeactivatedAt(updatedOrder.getDeactivatedAt());
-        internalOrder.setUpdatedAt(updatedOrder.getUpdatedAt());
+
 
         InternalOrder updatedOrderObj = internalOrderRepository.save(internalOrder);
         return InternalOrderMapper.mapToInternalOrderDto(updatedOrderObj);

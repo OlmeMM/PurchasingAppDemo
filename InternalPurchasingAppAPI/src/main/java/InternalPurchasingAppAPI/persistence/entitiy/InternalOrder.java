@@ -18,9 +18,6 @@ public class InternalOrder {
     private Integer id;
     private Float totalAmount;
     private Integer statusId;
-    private Date deliveryDate;
     private String notes;
-    private Date createdAt;
-    private Date updatedAt;
-    private Date deactivatedAt;
+
 }
