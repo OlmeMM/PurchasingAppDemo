@@ -15,18 +15,17 @@ import lombok.Setter;
 @Table(name = "products")
 public class Product {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "category_id")
-    @Nullable
+    @Column(name = "category_id", nullable = true) // Add nullable = false
     private Integer categoryId;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "price")
-    private float price;
+    private Float price;
 
 }

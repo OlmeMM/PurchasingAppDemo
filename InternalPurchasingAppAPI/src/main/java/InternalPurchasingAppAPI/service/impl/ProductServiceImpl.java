@@ -34,10 +34,15 @@ public class ProductServiceImpl implements ProductService {
         return ProductMapper.mapToProductDto(product);
     }
 
-    @Override
     public List<ProductDto> getAllProducts() {
         List<Product> products = productRepository.findAll();
-        return products.stream().map((product) -> ProductMapper.mapToProductDto(product))
+        // Filter products where categoryId is not null
+        List<Product> filteredProducts = products.stream()
+                .filter(product -> product.getCategoryId() != null)
+                .collect(Collectors.toList());
+        // Map filtered products to DTOs
+        return filteredProducts.stream()
+                .map(product -> ProductMapper.mapToProductDto(product))
                 .collect(Collectors.toList());
     }
 
